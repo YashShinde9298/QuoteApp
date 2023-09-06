@@ -1,4 +1,4 @@
-A quote app project is a software application designed to provide users with a collection of inspirational, thought-provoking, or entertaining quotes.Such an app typically offers a user-friendly interface that allows users to discover quotes, add quotes, edit quotes posted by him, delete quotes, edit profile, create new profile, log in to profile, etc.
+A quote app project is a web application designed to provide users with a collection of inspirational, thought-provoking, or entertaining quotes.Such an app typically offers a user-friendly interface that allows users to discover quotes, add quotes, edit quotes posted by him, delete quotes, edit profile, create new profile, log in to profile, etc.
 
 
 # Project Overview:
