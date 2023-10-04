@@ -17,6 +17,7 @@ appForRegister.post("/", (request, response) => {
     connection.query(query, (error, result) => {
         if (error == null) {
             var data = JSON.stringify(result);
+            console.log(data);
             response.setHeader("Content-Type", "application/json");
             response.write(data);
         }

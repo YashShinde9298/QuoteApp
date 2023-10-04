@@ -60,37 +60,6 @@ function MyProfile(props) {
     }
     return (<>
         <Header />
-        {/* 
-        <MDBContainer fluid style={{ backgroundColor: '#00A8B5', height: "500" }}>
-
-            <MDBRow className='d-flex justify-content-center align-items-center h-100'>
-                <MDBCol col='12'>
-
-                    <MDBCard className='bg-white my-5 mx-auto' style={{ borderRadius: '1rem', maxWidth: '500px' }}>
-                        <MDBCardBody className='p-5 w-100 d-flex flex-column'>
-
-                            <h2 className="fw-bold mb-2 text-center">Sign Up</h2>
-
-                            <MDBRow>
-                                <MDBCol col='6'>
-                                    <MDBInput wrapperClass='mb-4' label='First name' id='txtFName' name="first_name" type='text' value={loginInfo.first_name} onChange={textChange} />
-                                </MDBCol>
-
-                                <MDBCol col='6'>
-                                    <MDBInput wrapperClass='mb-4' label='Last name' id='txtLName' type='text' name="last_name" value={loginInfo.last_name} onChange={textChange} />
-                                </MDBCol>
-                            </MDBRow>
-
-                            <MDBInput wrapperClass='mb-4' label='Email' id='txtEmail' type='email' name="email" value={loginInfo.email} onChange={textChange} />
-                            <MDBInput wrapperClass='mb-4' label='Phone no.' id='txtMobile' type='number' name="mobile" value={loginInfo.mobile} onChange={textChange} />
-
-                            <MDBBtn onClick={Save}>Update Info</MDBBtn>
-                        </MDBCardBody>
-                    </MDBCard>
-                </MDBCol>
-            </MDBRow>
-            <ToastContainer position='top-center' />
-        </MDBContainer> */}
         <MDBContainer fluid>
 
             <div className="p-5 bg-image" style={{ backgroundImage: 'url(https://mdbootstrap.com/img/new/textures/full/171.jpg)', height: '300px' }}></div>

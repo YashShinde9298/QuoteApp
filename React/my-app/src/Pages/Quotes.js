@@ -24,29 +24,6 @@ function Quotes() {
 
     return (<>
         <Header />
-        {/* <div className="table-responsive">
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Sr. No</th>
-                        <th>Quotes</th>
-                        <th>Author</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        quotes.map((quote) => {
-                            return <tr key={quote.quote_id}>
-                                <td>{quote.quote_id}</td>
-                                <td>{quote.text}</td>
-                                <td>{quote.author}</td>
-                            </tr>
-                        })
-                    }
-                </tbody>
-            </table>
-        </div> */}
-
         {quotes.map((quote) => (<>
             <center>
                 <MDBCard className="m-3 w-50" key={quote.quote_id}>

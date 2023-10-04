@@ -50,29 +50,6 @@ function Login() {
         history.push('/register');
     }
     return (<>
-        {/* <MDBContainer fluid style={{ backgroundColor: '#00A8B5' }}>
-
-            <MDBRow className='d-flex justify-content-center align-items-center h-100'>
-                <MDBCol col='12'>
-
-                    <MDBCard className='bg-white my-5 mx-auto' style={{ borderRadius: '1rem', maxWidth: '500px' }}>
-                        <MDBCardBody className='p-5 w-100 d-flex flex-column'>
-
-                            <h2 className="fw-bold mb-2 text-center">Log In</h2>
-                            <p className="text-white-50 mb-3">Please enter your login and password!</p>
-
-                            <MDBInput wrapperClass='mb-4 w-100' label='Email address' name='email' value={loginInfo.email} id='txtEmail' type='email' size="lg" onChange={OnTextChange} />
-                            <MDBInput wrapperClass='mb-4 w-100' label='Password' name='password' value={loginInfo.password} id='txtPassword' type='password' size="lg" onChange={OnTextChange} />
-                            <MDBBtnGroup aria-label='Basic example'>
-                                <MDBBtn onClick={LogIn}>Log In</MDBBtn>
-                                <MDBBtn onClick={Register} color='warning'>SignUp</MDBBtn>
-                            </MDBBtnGroup>
-                        </MDBCardBody>
-                    </MDBCard>
-                </MDBCol>
-            </MDBRow>
-        </MDBContainer>
-        <ToastContainer position='top-center' /> */}
         <MDBContainer fluid>
 
             <div className="p-5 bg-image" style={{ backgroundImage: 'url(https://mdbootstrap.com/img/new/textures/full/171.jpg)', height: '300px' }}></div>
