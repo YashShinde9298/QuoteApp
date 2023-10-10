@@ -77,4 +77,18 @@ appForMyQuotes.put("/:quote_id", (request, response) => {
     })
 })
 
+appForMyQuotes.put("/:user_id", (request, response) => {
+    var query = `select quote_id from quotes where quote_id = any(select quote_id from favourite_quotes where user_id = ${request.params.id})`;
+    connection.query(query, (error, result) => {
+        if (error == null) {
+            var r = JSON.stringify(result);
+            response.send(r);
+        }
+        else {
+            console.log(error);
+            response.send(error);
+        }
+    })
+})
+
 module.exports = appForMyQuotes;

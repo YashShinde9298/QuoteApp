@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import Header from "../Header";
 import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
 import { ToastContainer, toast } from "react-toastify";
 
 function MyQuotes() {
-    const history = useHistory();
     const [myQuotes, setMyQuotes] = useState([]);
     var id = window.sessionStorage.getItem("user_id");
     console.log(id);
     const [quote, setQuote] = useState({ text: "", author: "", user_id: id });
+    const [btndisable, setBtnDisable] = useState(false);
 
 
     useEffect(() => {
@@ -40,6 +39,7 @@ function MyQuotes() {
             if (quoteToEdit.quote_id == quote_id) {
                 var copyOfQuoteToEdit = { ...quoteToEdit };
                 setQuote(copyOfQuoteToEdit);
+                setBtnDisable(true);
                 return;
             }
         })
@@ -54,6 +54,7 @@ function MyQuotes() {
                     toast.warning("Quote Updated");
                     select();
                     setQuote({ text: "", author: "" })
+                    setBtnDisable(false);
                 }
             }
         }
@@ -107,8 +108,8 @@ function MyQuotes() {
                     <input type="text" name="author" placeholder="Enter Author" className="form-control m-3 w-50" value={quote.author} onChange={OnTextChange}></input>
                 </div>
                 <MDBBtnGroup aria-label='Basic example' className="m-2">
-                    <MDBBtn onClick={insert} color="success">Add Quote</MDBBtn>
-                    <MDBBtn onClick={update} color='warning'>Update Quote</MDBBtn>
+                    <MDBBtn onClick={insert} color="success" disabled={btndisable == true}>Add Quote</MDBBtn>
+                    <MDBBtn onClick={update} color='warning' disabled={btndisable == false}>Update Quote</MDBBtn>
                 </MDBBtnGroup>
             </div>
         </center>

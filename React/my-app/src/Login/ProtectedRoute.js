@@ -6,17 +6,17 @@ function ProtectedRoute(props) {
 
     var isUserValid = window.sessionStorage.getItem("isValid");
 
-    if(isUserValid!=null && isUserValid == 'true'){
+    if (isUserValid != null && isUserValid == 'true') {
         isValid = true;
     }
-    else{
+    else {
         isValid = false;
     }
 
-    if(isValid){
-        return <Route exact path={props.path} component={props.component}/>
+    if (isValid) {
+        return <Route exact path={props.path} component={props.component} />
     }
-    else{
+    else {
         return <Login></Login>
     }
 }
