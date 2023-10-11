@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import Header from "../Header";
-import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
 import { ToastContainer, toast } from "react-toastify";
 
 function MyQuotes() {
     const [myQuotes, setMyQuotes] = useState([]);
     var id = window.sessionStorage.getItem("user_id");
-    console.log(id);
     const [quote, setQuote] = useState({ text: "", author: "", user_id: id });
     const [btndisable, setBtnDisable] = useState(false);
 
@@ -51,9 +49,17 @@ function MyQuotes() {
             if (server.readyState == 4 && server.status == 200) {
                 var responseReceived = JSON.parse(server.responseText);
                 if (responseReceived.affectedRows != undefined && responseReceived.affectedRows > 0) {
-                    select();
-                    setQuote({ text: "", author: "" })
-                    setBtnDisable(false);
+                    if (quote.text.length == "") {
+                        toast.error("Quote text cannot be empty!");
+                    }
+                    else if (quote.author.length == "") {
+                        toast.error("Author cannot be empty!");
+                    }
+                    else {
+                        select();
+                        setQuote({ text: "", author: "" })
+                        setBtnDisable(false);
+                    }
                 }
             }
         }
@@ -83,10 +89,18 @@ function MyQuotes() {
             debugger;
             if (server.readyState == 4 && server.status == 200) {
                 var responseReceived = JSON.parse(server.responseText);
-                setMyQuotes(responseReceived);
-                select();
-                if (responseReceived.affectedRows != undefined && responseReceived.affectedRows > 0) {
-                    setQuote({ text: "", author: "", user_id: id })
+                if (responseReceived.affectedRows > 0) {
+                    if (quote.text.length == "") {
+                        toast.error("Quote text cannot be empty!")
+                    }
+                    else if (quote.author.length == "") {
+                        toast.error("Author cannot be empty!");
+                    }
+                    else {
+                        setMyQuotes(responseReceived);
+                        select();
+                        setQuote({ text: "", author: "", user_id: id })
+                    }
                 }
             }
         }
@@ -127,9 +141,9 @@ function MyQuotes() {
                                 if (quote.user_id == id) {
                                     debugger;
                                     return (<tr key={quote.quote_id} className="h-12">
-                                        <td className="border border-slate-600">{quote.quote_id}</td>
-                                        <td className="border border-slate-600">{quote.text}</td>
-                                        <td className="border border-slate-600">{quote.author}</td>
+                                        <td className="border border-slate-600 ps-2">{quote.quote_id}</td>
+                                        <td className="border border-slate-600 ps-2">{quote.text}</td>
+                                        <td className="border border-slate-600 ps-2">{quote.author}</td>
                                         <td className="border border-slate-600  text-center">
                                             <button className="h-9 w-24 rounded-xl bg-cyan-500 text-white hover:bg-cyan-600" onClick={() => { edit(quote.quote_id) }}>Edit</button>
                                         </td>
@@ -144,7 +158,7 @@ function MyQuotes() {
                 </table>
             </div>
         </div>
-        
+        <ToastContainer />
     </>);
 }
 

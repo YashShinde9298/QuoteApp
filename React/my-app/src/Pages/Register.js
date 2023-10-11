@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
@@ -61,11 +61,9 @@ function Register() {
         history.push('/login');
     }
     return (<div className='flex justify-center items-center pt-1 gap-11'>
-
-
         <h1 className='text-5xl font-semibold text-indigo-500'>Welcome to <br /> Awesome Quotes</h1>
         <div className='grid justify-center shadow-xl shadow-indigo-500 rounded-xl border w-3/5 p-5'>
-            <div>
+            <div className="text-2xl font-semibold tracking-wider">
                 <h1>Sign up to Platform</h1>
             </div>
             <div className='grid gap-2'>
@@ -95,7 +93,9 @@ function Register() {
                 </div>
             </div>
         </div>
+        <ToastContainer />
     </div>
+
     );
 }
 

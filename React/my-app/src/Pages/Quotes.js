@@ -44,7 +44,7 @@ function Quotes() {
             <div className="grid grid-cols-3 gap-4">
                 {quotes.map((quote) => {
                     return (
-                        <div className="border-1 rounded-xl p-3 shadow-xl ">
+                        <div className="transition delay-150 border-1 rounded-xl p-3 shadow-xl   hover:scale-110 duration-500 ">
                             <h2 className="text-2xl">{quote.text}</h2>
                             <h5 className="text-gray-400">- {quote.author}</h5>
                             <button onClick={() => { addToFav(quote.quote_id) }} disabled={quote.user_id == id} className="bg-indigo-500 text-white h-7 w-36 text-sm rounded-lg hover:bg-indigo-700">Add to Favourites</button>

@@ -28,7 +28,6 @@ function Login() {
                     } else if (loginInfo.password.length == '') {
                         toast.error("Please enter password")
                     } else {
-                        // setUserData([]);
                         window.sessionStorage.setItem("username", `${data[0].first_name}`);
                         window.sessionStorage.setItem("isValid", 'true');
                         window.sessionStorage.setItem("user_id", `${data[0].user_id}`);
@@ -53,7 +52,7 @@ function Login() {
         <div className='flex justify-center items-center pt-24 gap-11 '>
             <h1 className='text-5xl font-semibold text-indigo-500'>Welcome to <br /> Awesome Quotes</h1>
             <div className='grid justify-center shadow-xl shadow-indigo-500 rounded-xl border w-3/5 p-5'>
-                <div>
+                <div className="text-2xl font-semibold tracking-wider">
                     <h1>Sign in to Platform</h1>
                 </div>
                 <div className='grid gap-2'>
@@ -71,6 +70,7 @@ function Login() {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>);
 }
 
