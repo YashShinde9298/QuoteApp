@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import { MDBCard, MDBCardHeader, MDBCardBody, MDBTypography, MDBBtn } from 'mdb-react-ui-kit';
 import Header from "../Header";
 
 function Quotes() {
@@ -26,7 +25,7 @@ function Quotes() {
         server.send();
     }
 
-    const addToFav = (quote_id, user_id) => {
+    const addToFav = (quote_id) => {
         var server = new XMLHttpRequest();
         server.onreadystatechange = () => {
             if (server.readyState === 4 && server.status === 200) {
@@ -39,29 +38,21 @@ function Quotes() {
         server.send();
     }
 
-
-
     return (<>
         <Header />
-        {quotes.map((quote) => {
-            return (
-                <center>
-                    <MDBCard className="m-3 w-50" key={quote.quote_id}>
-                        <MDBCardHeader>{quote.quote_id}</MDBCardHeader>
-                        <MDBCardBody>
-                            <MDBTypography blockquote className='mb-0'>
-                                <p>{quote.text}</p>
-                                <footer className='blockquote-footer'>
-                                    {quote.author}
-                                </footer>
-                            </MDBTypography>
-                            <MDBBtn onClick={() => { addToFav(quote.quote_id) }} disabled={quote.user_id == id}>Add To Favourites</MDBBtn>
-                        </MDBCardBody>
-                    </MDBCard>
-                </center>
-            )
-        }
-        )}
+        <div className="flex flex-row h-full m-3">
+            <div className="grid grid-cols-3 gap-4">
+                {quotes.map((quote) => {
+                    return (
+                        <div className="border-1 rounded-xl p-3 shadow-xl ">
+                            <h2 className="text-2xl">{quote.text}</h2>
+                            <h5 className="text-gray-400">- {quote.author}</h5>
+                            <button onClick={() => { addToFav(quote.quote_id) }} disabled={quote.user_id == id} className="bg-indigo-500 text-white h-7 w-36 text-sm rounded-lg hover:bg-indigo-700">Add to Favourites</button>
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
     </>);
 }
 

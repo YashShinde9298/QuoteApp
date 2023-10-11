@@ -2,39 +2,32 @@ import { useHistory } from "react-router-dom";
 
 function Header() {
   const history = useHistory();
+  const userName = sessionStorage.getItem("username");
   const Logout = () => {
     window.sessionStorage.removeItem("isValid");
     window.sessionStorage.removeItem("username");
     window.sessionStorage.removeItem("user_id");
     history.push('/login');
   }
-  return (<>
 
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
 
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="/home">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/myquotes">My Quotes</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/fav">FavouriteQuotes</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/profile">Profile</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" onClick={Logout} style={{ color: "red", marginLeft: 850 }} href="/">Logout</a>
-          </li>
-        </ul>
-        <ul className="navbar-nav">
+  return (<div className="flex h-14 shadow-xl items-center place-content-between px-2">
 
-        </ul>
-      </div>
-    </nav></>);
+    <div >
+      <h1 className="text-3xl font-semibold tracking-wider text-indigo-500">Awesome Quotes</h1>
+    </div>
+    <div className="flex space-x-6 text-lg font-medium ">
+      <button onClick={() => { history.push('/home') }} className="hover:text-indigo-500" >Home</button>
+      <button onClick={() => { history.push('/myquotes') }} className="hover:text-indigo-500" >My Quotes</button>
+      <button onClick={() => { history.push('/fav') }} className="hover:text-indigo-500" >Favourite Quotes</button>
+      <button onClick={() => { history.push('/profile') }} className="hover:text-indigo-500" >Profile</button>
+    </div>
+    <div className="flex space-x-4 items-center">
+      <h4 className="text-xl pt-2">Welcome {userName}</h4>
+
+      <button className="text-red-500 text-lg hover:text-red-700" onClick={Logout}>Log out</button>
+    </div>
+  </div>);
 }
 
 export default Header;

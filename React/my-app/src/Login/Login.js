@@ -49,30 +49,29 @@ function Login() {
     const Register = () => {
         history.push('/register');
     }
-    return (<>
-        <MDBContainer fluid>
-
-            <div className="p-5 bg-image" style={{ backgroundImage: 'url(https://mdbootstrap.com/img/new/textures/full/171.jpg)', height: '300px' }}></div>
-
-            <MDBCard className='mx-5 mb-5 p-5 shadow-5' style={{ marginTop: '-100px', background: 'hsla(0, 0%, 100%, 0.8)', backdropFilter: 'blur(30px)' }}>
-                <MDBCardBody className='p-5 text-center'>
-
-                    <h2 className="fw-bold mb-3">Welcome To Quote App</h2>
-                    <h2 className="fw-bold mb-5">Log In</h2>
-
-                    <MDBInput wrapperClass='mb-4 w-100' label='Email address' name='email' value={loginInfo.email} id='txtEmail' type='email' size="lg" onChange={OnTextChange} />
-                    <MDBInput wrapperClass='mb-4 w-100' label='Password' name='password' value={loginInfo.password} id='txtPassword' type='password' size="lg" onChange={OnTextChange} />
-
-                    <MDBBtn className='w-100 mb-4' size='md' onClick={LogIn}>Log In</MDBBtn>
-                    <div>
-                        <p className='ms-5'>Don't have an account? <a onClick={Register} class="link-info">Register here</a></p>
+    return (
+        <div className='flex justify-center items-center pt-24 gap-11 '>
+            <h1 className='text-5xl font-semibold text-indigo-500'>Welcome to <br /> Awesome Quotes</h1>
+            <div className='grid justify-center shadow-xl shadow-indigo-500 rounded-xl border w-3/5 p-5'>
+                <div>
+                    <h1>Sign in to Platform</h1>
+                </div>
+                <div className='grid gap-2'>
+                    <div className='grid'>
+                        <label>Your Email</label>
+                        <input type='email' name='email' value={loginInfo.email} onChange={OnTextChange} placeholder='Enter Email' className='bg-gray-200 outline-none rounded-md h-9 w-80 ps-2' />
                     </div>
-
-                </MDBCardBody>
-            </MDBCard>
-            <ToastContainer position='top-center' />
-        </MDBContainer>
-    </>);
+                    <div className='grid'>
+                        <label>Your Password</label>
+                        <input type='password' name='password' value={loginInfo.password} onChange={OnTextChange} placeholder='Enter Password' className='bg-gray-200 outline-none rounded-md h-9 w-80 ps-2' />
+                    </div>
+                    <button className='bg-indigo-500 w-20 rounded-lg h-9 text-white hover:bg-indigo-700' onClick={LogIn}>Log In</button>
+                    <div>
+                        <p>Don't have an account? <a onClick={Register} class="link-info" className='hover:cursor-pointer'>Register here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>);
 }
 
 export default Login;

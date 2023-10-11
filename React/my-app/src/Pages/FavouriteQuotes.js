@@ -40,25 +40,19 @@ function FavouriteQuotes() {
 
     return (<>
         <Header />
-        {fav.map((quote) => {
-            return (
-                <center>
-                    <MDBCard className="m-3 w-50" key={quote.quote_id}>
-                        <MDBCardHeader>{quote.quote_id}</MDBCardHeader>
-                        <MDBCardBody>
-                            <MDBTypography blockquote className='mb-0'>
-                                <p>{quote.text}</p>
-                                <footer className='blockquote-footer'>
-                                    {quote.author}
-                                </footer>
-                            </MDBTypography>
-                            <MDBBtn onClick={() => { removeFromFav(quote.quote_id) }}>Remove</MDBBtn>
-                        </MDBCardBody>
-                    </MDBCard>
-                </center>
-            )
-        }
-        )}
+        <div className="flex flex-row h-full m-3">
+            <div className="grid grid-cols-3 gap-4">
+                {fav.map((quote) => {
+                    return (
+                        <div className="border-1 rounded-xl p-3 shadow-xl">
+                            <h2 className="text-2xl">{quote.text}</h2>
+                            <h5 className="text-gray-400">- {quote.author}</h5>
+                            <button onClick={() => { removeFromFav(quote.quote_id) }} className="bg-indigo-500 text-white h-7 w-24 text-sm rounded-lg hover:bg-indigo-700">Remove</button>
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
     </>);
 }
 

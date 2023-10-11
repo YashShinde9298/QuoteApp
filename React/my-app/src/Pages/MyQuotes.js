@@ -51,7 +51,6 @@ function MyQuotes() {
             if (server.readyState == 4 && server.status == 200) {
                 var responseReceived = JSON.parse(server.responseText);
                 if (responseReceived.affectedRows != undefined && responseReceived.affectedRows > 0) {
-                    toast.warning("Quote Updated");
                     select();
                     setQuote({ text: "", author: "" })
                     setBtnDisable(false);
@@ -69,7 +68,6 @@ function MyQuotes() {
             if (helper.readyState == 3 && helper.status == 200) {
                 var responseReceived = JSON.parse(helper.responseText);
                 if (responseReceived.affectedRows != undefined && responseReceived.affectedRows > 0) {
-                    toast.error("Quote Deleted");
                     select();
                 }
             }
@@ -86,8 +84,8 @@ function MyQuotes() {
             if (server.readyState == 4 && server.status == 200) {
                 var responseReceived = JSON.parse(server.responseText);
                 setMyQuotes(responseReceived);
-                if (responseReceived.affectedRows > 0) {
-                    select();
+                select();
+                if (responseReceived.affectedRows != undefined && responseReceived.affectedRows > 0) {
                     setQuote({ text: "", author: "", user_id: id })
                 }
             }
@@ -99,51 +97,54 @@ function MyQuotes() {
 
     return (<>
         <Header />
-        <center>
-            <div>
-                <div className='form-group'>
-                    <input type="text" name="text" placeholder="Enter Quote" className="form-control m-3 w-50" value={quote.text} onChange={OnTextChange}></input>
+        <div>
+            <div className="grid items-center justify-center gap-4 pt-5">
+                <div>
+                    <input type="text" name="text" placeholder="Enter Quote" value={quote.text} onChange={OnTextChange} className="outline-none ps-2 w-[30rem] h-9 rounded-lg bg-gray-200" />
                 </div>
-                <div className='form-group'>
-                    <input type="text" name="author" placeholder="Enter Author" className="form-control m-3 w-50" value={quote.author} onChange={OnTextChange}></input>
+                <div>
+                    <input type="text" name="author" placeholder="Enter Author Name" value={quote.author} onChange={OnTextChange} className="outline-none ps-2 w-[30rem] h-9 rounded-lg bg-gray-200" />
                 </div>
-                <MDBBtnGroup aria-label='Basic example' className="m-2">
-                    <MDBBtn onClick={insert} color="success" disabled={btndisable == true}>Add Quote</MDBBtn>
-                    <MDBBtn onClick={update} color='warning' disabled={btndisable == false}>Update Quote</MDBBtn>
-                </MDBBtnGroup>
+                <div className="flex items-center justify-center gap-5">
+                    <button className="h-9 w-32 rounded-xl bg-green-500 text-white hover:bg-green-600" onClick={insert} disabled={btndisable == true}>Add Data</button>
+                    <button className="h-9 w-32 rounded-xl bg-yellow-500 text-white hover:bg-yellow-600" onClick={update} disabled={btndisable == false}>Update Data</button>
+                </div>
             </div>
-        </center>
 
-        <div className="table-responsive m-2">
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Sr. No.</th>
-                        <th>Quotes</th>
-                        <th>Author</th>
-                        <th colSpan={2}>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        myQuotes.map((quote) => {
-                            if (quote.user_id == id) {
-                                debugger;
-                                return (<tr key={quote.quote_id}>
-                                    <td>{quote.quote_id}</td>
-                                    <td>{quote.text}</td>
-                                    <td>{quote.author}</td>
-                                    <td><MDBBtn onClick={() => { edit(quote.quote_id) }} color='info'>Edit</MDBBtn></td>
-                                    <td><MDBBtn onClick={() => { deleteQuote(quote.quote_id) }} color='danger'>Delete</MDBBtn></td>
-                                </tr>)
-                            }
-                        })
-                    }
-                </tbody>
-            </table>
+            <div className="grid pt-4">
+                <table className="table-auto border-collapse border w-full border-slate-500">
+                    <thead>
+                        <tr className="h-12 text-center">
+                            <th className="border border-slate-600">Sr. No.</th>
+                            <th className="border border-slate-600">Quotes</th>
+                            <th className="border border-slate-600">Author</th>
+                            <th colSpan={2} className="border border-slate-600">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            myQuotes.map((quote) => {
+                                if (quote.user_id == id) {
+                                    debugger;
+                                    return (<tr key={quote.quote_id} className="h-12">
+                                        <td className="border border-slate-600">{quote.quote_id}</td>
+                                        <td className="border border-slate-600">{quote.text}</td>
+                                        <td className="border border-slate-600">{quote.author}</td>
+                                        <td className="border border-slate-600  text-center">
+                                            <button className="h-9 w-24 rounded-xl bg-cyan-500 text-white hover:bg-cyan-600" onClick={() => { edit(quote.quote_id) }}>Edit</button>
+                                        </td>
+                                        <td className="border border-slate-600 text-center">
+                                            <button className="h-9 w-24 rounded-xl bg-red-600 text-white hover:bg-red-700" onClick={() => { deleteQuote(quote.quote_id) }}>Delete</button>
+                                        </td>
+                                    </tr>)
+                                }
+                            })
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <ToastContainer position='top-center' />
-
+        
     </>);
 }
 
