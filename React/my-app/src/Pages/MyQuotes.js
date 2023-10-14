@@ -129,7 +129,7 @@ function MyQuotes() {
                 <table className="table-auto border-collapse border w-full border-slate-500">
                     <thead>
                         <tr className="h-12 text-center">
-                            <th className="border border-slate-600">Sr. No.</th>
+                            <th className="border border-slate-600">Quote Id</th>
                             <th className="border border-slate-600">Quotes</th>
                             <th className="border border-slate-600">Author</th>
                             <th colSpan={2} className="border border-slate-600">Actions</th>
@@ -141,7 +141,7 @@ function MyQuotes() {
                                 if (quote.user_id == id) {
                                     debugger;
                                     return (<tr key={quote.quote_id} className="h-12">
-                                        <td className="border border-slate-600 ps-2">{quote.quote_id}</td>
+                                        <td className="border border-slate-600 ps-2 text-center">{quote.quote_id}</td>
                                         <td className="border border-slate-600 ps-2">{quote.text}</td>
                                         <td className="border border-slate-600 ps-2">{quote.author}</td>
                                         <td className="border border-slate-600  text-center">
