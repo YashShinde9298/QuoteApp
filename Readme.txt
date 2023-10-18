@@ -1,11 +1,11 @@
-A quote app project is a web application designed to provide users with a collection of inspirational, thought-provoking, or entertaining quotes.Such an app typically offers a user-friendly interface that allows users to discover quotes, add quotes, edit quotes posted by him, delete quotes, edit profile, create new profile, log in to profile, etc.
+A quote app project is a web application designed to provide users with a collection of inspirational, thought-provoking, or entertaining quotes.Such an app typically offers a user-friendly interface that allows users to discover quotes, add quotes, edit and delete quotes posted by him, add quotes to favourites, edit profile, create new profile, log in to profile, etc.
 
 
 # Project Overview:
 The quote app is a mobile or web-based application that aims to curate and present a diverse range of quotes to users. It serves as a source of motivation, inspiration, or simply a means of entertainment for people of all ages and interests.
 
 # Technologies Used : 
-	Front end : ReactJS, MDBoostrap, Bootstrap 5
+	Front end : ReactJS, TailwindCSS
 	Back end : Node JS, Express JS
 	Database : MySql
 
@@ -17,7 +17,6 @@ The quote app is a mobile or web-based application that aims to curate and prese
 	"@testing-library/react": "^13.4.0",
 	"@testing-library/user-event": "^13.5.0",
 	"bootstrap": "^5.3.0",    (npm i boostrap)
-	"mdb-react-ui-kit": "^6.2.0",   (npm i mdb-react-ui-kit)
 	"react": "^18.2.0",
 	"react-dom": "^18.2.0",
 	"react-router-dom": "^5.2.0",
