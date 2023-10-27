@@ -1,4 +1,3 @@
-import { MDBBtn, MDBBtnGroup, MDBCard, MDBCardBody, MDBCheckbox, MDBCol, MDBContainer, MDBInput, MDBRow } from 'mdb-react-ui-kit';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 function Login() {
     const history = useHistory();
     const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
-    const [message, setMessage] = useState("");
+    // const [message, setMessage] = useState("");
     // const [userData, setUserData] = useState([]);
 
     const OnTextChange = (args) => {
@@ -36,7 +35,7 @@ function Login() {
 
                 }
                 else {
-                    toast.error(setMessage("Invalid Credentials"));
+                    toast.error("Invalid Credentials");
                 }
             }
         }

@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import Select from "react-select";
 
 function Header() {
   const history = useHistory();
@@ -25,7 +26,6 @@ function Header() {
         </div>
         <div className="flex space-x-4 items-center">
           <h4 className="text-xl pt-2">Welcome, <span className="font-semibold">{userName}</span></h4>
-
           <button className="text-red-500 text-lg underline hover:text-red-700" onClick={Logout}>Log out</button>
         </div>
       </div>

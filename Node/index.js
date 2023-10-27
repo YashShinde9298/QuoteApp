@@ -16,6 +16,7 @@ app.use((request, response, next) => {
 })
 
 app.use(express.json());
+app.use(express.static('public'))
 app.use('/quotes', quoteRelatedRoutes);
 app.use('/myquotes', myQuoteRelatedRoutes);
 app.use('/register', registerRelatedRoutes);

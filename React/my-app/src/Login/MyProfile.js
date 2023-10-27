@@ -62,7 +62,7 @@ function MyProfile(props) {
             <h1 className='text-5xl font-semibold text-indigo-500'>Welcome to <br /> Awesome Quotes</h1>
             <div className='grid justify-center shadow-xl shadow-indigo-500 rounded-xl border w-3/5 p-5'>
                 <div className="text-2xl font-semibold tracking-wider">
-                    <h1>Update Data</h1>
+                    <h1>Edit Profile</h1>
                 </div>
                 <div className='grid gap-2'>
                     <div className='grid'>
