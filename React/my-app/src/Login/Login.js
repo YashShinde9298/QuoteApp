@@ -16,11 +16,9 @@ function Login() {
 
     const LogIn = () => {
         var server = new XMLHttpRequest();
-        debugger;
         server.onreadystatechange = () => {
             if (server.readyState === 4 && server.status == 200) {
                 var data = JSON.parse(server.responseText);
-                debugger;
                 if (data.length > 0) {
                     if (loginInfo.email.length == '') {
                         toast.error("Please enter email")
