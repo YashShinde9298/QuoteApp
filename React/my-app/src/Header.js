@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom";
-import Select from "react-select";
+import { BsChatRightQuote } from 'react-icons/bs';
+
 
 function Header() {
   const history = useHistory();
@@ -15,8 +16,9 @@ function Header() {
   return (
     <div>
       <div className="flex h-14 shadow-xl items-center place-content-between px-2 bg-white">
-        <div >
-          <h1 className="text-3xl font-semibold tracking-wider text-indigo-500">Awesome Quotes</h1>
+        <div className="flex items-center">
+          <BsChatRightQuote className="w-7 h-7 text-indigo-500" />
+          <span className="text-3xl font-semibold tracking-wider text-indigo-500 pl-3">Awesome Quotes</span>
         </div>
         <div className="flex space-x-6 text-lg font-medium tracking-wider ">
           <button onClick={() => { history.push('/home') }} className="hover:text-indigo-500 hover:underline" >Home</button>
@@ -29,7 +31,9 @@ function Header() {
           <button className="text-red-500 text-lg underline hover:text-red-700" onClick={Logout}>Log out</button>
         </div>
       </div>
-    </div>);
+    </div>
+
+  );
 }
 
 export default Header;
